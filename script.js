@@ -4,12 +4,15 @@ let images = document.querySelectorAll(".images img");
 let timepara = document.querySelector(".time");
 let scorepara = document.querySelector(".score");
 let gayab = document.querySelector(".gayab");
+let wrapper = document.querySelector(".wrapper")
+
 const innerWidth = window.innerWidth;
 const innerHeight = window.innerHeight;
 
-let count = 60;
+let count = 10;
 let score = 0;
 let interval;
+let interval2;
 let selectavtar = "";
 
 start.addEventListener("click", () => {
@@ -21,19 +24,38 @@ images.forEach((e) => {
   e.addEventListener("click", (e) => {
     selectavtar = e.target.src;
     imagediv.style.display = "none";
-    showimage();
+    // showimage();
     console.log(selectavtar);
 
-    interval = setInterval(() => {
-      if (count >= 1) {
-        timepara.innerText = `Time: ${count}`;
-        scorepara.innerText = ` score: ${score}`;
+    starttime();
+
+    setTimeout(() => {
+      interval2 = setInterval(() => {
         showimage();
-      }
-      count--;
-    }, 1000);
+      },3000);
+    },100);
   });
 });
+
+function starttime() {
+  interval = setInterval(() => {
+  
+    if (count === 1) {
+      clearInterval(interval);
+      clearInterval(interval2)
+
+      gayab.style.display = "none"
+
+    wrapper.innerText = `your score is ${score}`
+
+    }
+
+    timepara.innerHTML = `Time: ${--count}`;
+    scorepara.innerText = ` score: ${score}`;
+    showimage();
+   
+  }, 500);
+}
 
 function showimage() {
   const img = document.createElement("img");
@@ -41,10 +63,6 @@ function showimage() {
   [img.style.left, img.style.top] = randomgetcoordinate();
   img.src = selectavtar;
 
-  img.addEventListener("click", () => {
-    score++;
-    img.remove();
-  });
   gayab.append(img);
 }
 
@@ -56,3 +74,11 @@ function randomgetcoordinate() {
   }
   return [x + "px", y + "px"];
 }
+
+gayab.addEventListener("click" , (e)=>{
+  if(e.target.tagName ===  "IMG"){
+    score++;
+    scorepara.innerText = ` score: ${score}`;
+    e.target.remove()
+   }
+})
