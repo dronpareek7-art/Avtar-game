@@ -4,12 +4,12 @@ let images = document.querySelectorAll(".images img");
 let timepara = document.querySelector(".time");
 let scorepara = document.querySelector(".score");
 let gayab = document.querySelector(".gayab");
-let wrapper = document.querySelector(".wrapper")
+let wrapper = document.querySelector(".wrapper");
 
 const innerWidth = window.innerWidth;
 const innerHeight = window.innerHeight;
 
-let count = 10;
+let count = 60;
 let score = 0;
 let interval;
 let interval2;
@@ -32,29 +32,26 @@ images.forEach((e) => {
     setTimeout(() => {
       interval2 = setInterval(() => {
         showimage();
-      },3000);
-    },100);
+      }, 3000);
+    }, 100);
   });
 });
 
 function starttime() {
   interval = setInterval(() => {
-  
     if (count === 1) {
       clearInterval(interval);
-      clearInterval(interval2)
+      clearInterval(interval2);
 
-      gayab.style.display = "none"
+      gayab.style.display = "none";
 
-    wrapper.innerText = `your score is ${score}`
-
+      wrapper.innerText = `your score is ${score}`;
     }
 
     timepara.innerHTML = `Time: ${--count}`;
     scorepara.innerText = ` score: ${score}`;
     showimage();
-   
-  }, 500);
+  }, 1000);
 }
 
 function showimage() {
@@ -75,10 +72,10 @@ function randomgetcoordinate() {
   return [x + "px", y + "px"];
 }
 
-gayab.addEventListener("click" , (e)=>{
-  if(e.target.tagName ===  "IMG"){
+gayab.addEventListener("click", (e) => {
+  if (e.target.tagName === "IMG") {
     score++;
     scorepara.innerText = ` score: ${score}`;
-    e.target.remove()
-   }
-})
+    e.target.remove();
+  }
+});
