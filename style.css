@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+  box-sizing: border-box;
+}
+.images{
+    display: none;
+    height: 300px;
+    width: 200px;
+    cursor: pointer;
+    position: relative;
+   
+}
+
+.images img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+     justify-content: space-between;
+    align-items: center;
+    margin:  20px 0;
+    
+}
+.chotiimage {
+  height: 150px;
+  width: 70px;
+  position: absolute;
+  cursor: pointer;
+}
+
