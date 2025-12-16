@@ -3,14 +3,33 @@
     padding: 0;
   box-sizing: border-box;
 }
+.wrapper{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+button{
+  background-color: gray;
+  padding: 10px 10px;
+  border-radius: 8px;
+  border: none;
+
+}
 .images{
     display: none;
+    justify-content: center;
+    align-items: center;
     height: 300px;
     width: 200px;
     cursor: pointer;
     position: relative;
+  
    
 }
+
 
 .images img{
     height: 100%;
@@ -28,73 +47,19 @@
   cursor: pointer;
   
 }
-
-
-body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #1e1e2f, #2c2c54);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.wrapper {
-  width: 90%;
-  max-width: 100vw;
-  min-height: 500px;
-  background: #fff;
-  border-radius: 12px;
-  padding: 10px;
-  position: relative;
-  overflow: hidden;
-}
-
-.start {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.start-btn {
-  padding: 14px 30px;
-  font-size: 18px;
-  border: none;
-  border-radius: 8px;
-  background: #4a69bd;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.start-btn:hover {
-  background: #1e3799;
-  transform: scale(1.05);
-}
-
-.images {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  margin: 40px auto;
-}
-
-.gayab {
-  position: relative;
-  width: 100%;
-  height: 350px;
-  margin-top: 20px;
-  overflow: hidden;
-  padding: 20px;
-}
-
 .info {
+  
   display: flex;
-  justify-content: space-between;
-  padding: 10px 20px;
-  background: #f1f2f6;
-  border-radius: 8px;
-  font-weight: bold;
+  justify-content: space-around;
+  gap: 50%;
+  font-size: 18px;
 }
+
+.time,
+.score {
+  background: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+}
+
 
